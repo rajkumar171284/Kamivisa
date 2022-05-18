@@ -1,0 +1,398 @@
+<div class="container-fluid">
+
+    <div class="floating">
+        <button mat-fab mat-button (click)="openDialog()">
+            <mat-icon>filter_list</mat-icon>
+
+        </button>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-12 dashboard-content">
+            <div class="row">
+                <div class="offset-md-10 col-md-2 text-left">
+                    <mat-card class="timep">
+                        <mat-card-content>
+
+                            {{currDate| date:'mediumDate'}}
+                            <!-- <mat-icon style="color:#001aff">av_timer</mat-icon> -->
+
+                        </mat-card-content>
+
+                        <mat-card-content>
+
+                            {{currDate| date:'mediumTime'}}
+                            <!-- <mat-icon style="color:rgb(55, 0, 255)">watch_later</mat-icon> -->
+
+                        </mat-card-content>
+
+                    </mat-card>
+                </div>
+
+
+            </div>
+
+
+            <div class="row">
+
+
+
+                <div class="col-md-4 offset-md-1">
+                    <mat-card class="result1">
+
+                        <mat-card-subtitle>Total ON Time</mat-card-subtitle>
+                        <mat-card-content>
+                            <div class="abs-content abs3">
+                                <img class="" src="assets/clock.png" />
+
+                                <!-- <mat-icon>library_books</mat-icon> -->
+
+                            </div>
+                            15 <span class="hrs">HRS</span>
+                            20 <span class="hrs">min</span>
+                            <!-- <mat-icon style="color:orange">change_history</mat-icon> -->
+
+                        </mat-card-content>
+
+                        <!-- <mat-card-footer>	more</mat-card-footer> -->
+                    </mat-card>
+                </div>
+                <div class="col-md-4 offset-md-1">
+                    <mat-card class="result1">
+
+                        <mat-card-subtitle>Total OFF Time</mat-card-subtitle>
+                        <mat-card-content>
+                            <div class="abs-content abs4">
+                                <img class="" src="assets/clock.png" />
+                                <!-- <mat-icon>list_alt</mat-icon> -->
+
+                            </div>
+                            1 <span class="hrs">HRS</span>
+                            5 <span class="hrs">min</span>
+                            <!-- <mat-icon style="color:red">arrow_downward</mat-icon> -->
+
+                        </mat-card-content>
+
+                        <!-- <mat-card-footer>	more</mat-card-footer> -->
+                    </mat-card>
+                </div>
+
+
+            </div>
+
+
+            <div class="row ">
+
+                <div class="col-md-10 offset-md-1 mt-3">
+                    <mat-card class="result2 mt-4 mb-3">
+                        <div class="row">
+                            <div class="col-md-12 text-dark text-uppercase text-center">
+                                <h4>MIxer loading</h4>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-card class="bg1">
+                                    <mat-card-header class="text-dark">
+                                        Hatch Open
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <span>1</span>
+                                        <span class="hrs">HRS</span>
+                                        15
+                                        <span class="hrs">min</span>
+
+                                        <img class="" src="assets/hatch-open.jpg" />
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-card class="bg1">
+                                    <mat-card-header class="text-dark">
+                                        Hatch Close
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <span>12</span>
+                                        <span class="hrs">HRS</span>
+
+                                        <img class="" src="assets/hatch-close.jpg" />
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+
+
+                    </mat-card>
+                </div>
+
+            </div>
+
+
+            <div class="row ">
+
+                <div class="col-md-10 offset-md-1">
+                    <mat-card class="result2 mt-4 mb-3">
+                        <div class="row">
+                            <div class="col-md-12 text-dark text-uppercase text-center">
+                                <h4>MIxer unloading</h4>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-card class="bg1">
+                                    <mat-card-header class="text-dark">
+                                        Hatch Open
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <span>40</span>
+                                        <span class="hrs">min</span>
+
+                                        <img class="" src="assets/hatch-open.jpg" />
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-card class="bg1">
+                                    <mat-card-header class="text-dark">
+                                        Hatch Close
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <span>11</span>
+                                        <span class="hrs">HRS</span>
+                                        5 <span class="hrs">min</span>
+                                        <img class="" src="assets/hatch-close.jpg" />
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+
+
+                    </mat-card>
+                </div>
+
+            </div>
+
+            <div class="row ">
+
+                <div class="col-md-6">
+                    <mat-card class="result4 mt-4 mb-3">
+
+                        <app-chartjs [monthsData]="monthsData" chartType="chart1"></app-chartjs>
+                        <!-- <app-plotly pMap="scatter2"></app-plotly> -->
+                        <div class="card-footer">
+
+
+                            <div>Operation Time</div>
+                        </div>
+
+                    </mat-card>
+                </div>
+
+                <div class="col-md-6 ">
+                    <mat-card class="result4 mt-4 mb-3">
+                        <app-line-chart [monthsData2]="monthsData2" chartType="chart2"></app-line-chart>
+                        <!-- <app-plotly pMap="line"></app-plotly> -->
+                        <div class="card-footer">
+
+
+                            <div>Idle Time</div>
+                        </div>
+
+                    </mat-card>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+                    <mat-card class=" mt-4 mb-3 wordCloud">
+                        <mat-card-header class="text-uppercase" style="font-size:25px">Run Time</mat-card-header>
+
+                        <div class="c-time11" style="">
+
+
+                            <!-- <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">av_timer</mat-icon> -->
+<img class="" style="height: 80px;" src="assets/runtime.png" />
+                            <mat-card-content class="ct">
+                                16
+                                <span class="hrs">HRS</span>
+                                10<span class="hrs">min</span>
+                            </mat-card-content>
+                        </div>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-4 ">
+                    <mat-card class=" mt-4 mb-3 wordCloud">
+                        <mat-card-header class="text-uppercase" style="font-size:25px">Idle Time</mat-card-header>
+                        <div class="c-time21" style="">
+                            <img class="" style="height: 80px;" src="assets/idlett.png" />
+                            <!-- <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">watch_later</mat-icon> -->
+                            <mat-card-content class="ct">
+                                4
+                                <span class="hrs">HRS</span>
+                                20<span class="hrs">min</span>
+
+
+                            </mat-card-content>
+                        </div>
+                    </mat-card>
+                </div>
+
+                <!-- <div class="col-md-12 "> -->
+                <!-- <app-heatmap-plotly pMap="scatter2"></app-heatmap-plotly> -->
+                <!-- <app-chartjs [monthsData2]="monthsData2" chartType="chart2"></app-chartjs> -->
+
+                <!-- </div> -->
+            </div>
+
+            <!-- -->
+
+            <div class="row">
+                <div class="col-md-4 offset-md-2">
+                    <mat-card class=" mt-4 mb-3 wordCloud">
+                        <mat-card-header class="text-uppercase" style="font-size:25px">Cycle Time</mat-card-header>
+
+                        <div class="c-time11" style="">
+                            <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">loop</mat-icon>
+
+                            <mat-card-content class="ct">
+                                14
+                                <span class="hrs">HRS</span>
+                                20<span class="hrs">min</span>
+                            </mat-card-content>
+                        </div>
+                    </mat-card>
+                </div>
+
+                <div class="col-md-4 ">
+                    <mat-card class=" mt-4 mb-3 wordCloud">
+                        <mat-card-header class="text-uppercase" style="font-size:25px">Cycle Count</mat-card-header>
+                        <div class="c-time21" style="">
+                            <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">list_alt</mat-icon>
+                            <mat-card-content class="ct">
+                                9
+
+
+                            </mat-card-content>
+                        </div>
+                    </mat-card>
+                </div>
+
+                <!-- <div class="col-md-12 "> -->
+                <!-- <app-heatmap-plotly pMap="scatter2"></app-heatmap-plotly> -->
+                <!-- <app-chartjs [monthsData2]="monthsData2" chartType="chart2"></app-chartjs> -->
+
+                <!-- </div> -->
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <mat-card class=" mt-4 mb-3 wordCloud">
+                        <div class="row">
+                            <div class="col-md-12 text-center mb-3">
+                                <mat-card-content class="text-white">
+                                    <img style="height: 80px;" class="" src="assets/rpm.png" /> RPM</mat-card-content>
+
+                                
+
+                                <hr style="border:2px solid #fff">
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <mat-card-subtitle class="ct2 text-white text-center">MIN</mat-card-subtitle>
+
+                                <mat-card-content class="text-center">
+                                    <span class="box">
+                                        20
+                                        <!-- <span class="hrs">HRS</span> -->
+                                    </span>
+                                </mat-card-content>
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <mat-card-subtitle class="ct2 text-white text-center">MAX</mat-card-subtitle>
+                                <mat-card-content class="text-center">
+                                    <span class="box">
+                                        120
+                                        <!-- <span class="hrs">HRS</span> -->
+                                    </span>
+                                </mat-card-content>
+                            </div>
+
+                            <div class="col-md-4">
+                                <mat-card-subtitle class="ct2 text-white text-center">AVG</mat-card-subtitle>
+                                <mat-card-content class="text-center">
+                                    <span class="box">
+                                        70
+                                        <!-- <span class="hrs">HRS</span> -->
+                                    </span>
+                                </mat-card-content>
+                            </div>
+
+                        </div>
+
+                        <!-- <app-heatmap-plotly pMap="scatter2"></app-heatmap-plotly> -->
+                        <!-- <app-plotly pMap="heat"></app-plotly> -->
+                    </mat-card>
+                    <!-- <mat-card class=" mt-4 mb-3 heatCnt"> -->
+
+                    <!-- <app-heatmap-plotly pMap="scatter2"></app-heatmap-plotly> -->
+                    <!-- <app-plotly pMap="heat"></app-plotly> -->
+                    <!-- </mat-card> -->
+
+                </div>
+                <!-- <div class="col-md-4">
+                    <app-plotly pMap="heat"></app-plotly>
+
+                </div> -->
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2 ">
+                    <mat-card class="wordCloud mt-4 mb-3">
+                        <mat-card-content class="text-uppercase text-white">Energy Consumed</mat-card-content>
+                        <div class="row">
+
+                            <div class="col-md-4 offset-md-1">
+                                <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                                    <img style="height: 180px;" class="" src="assets/m1.png" />
+
+                                   
+                                </div>
+                               
+                              
+                            </div>
+                            <div class="col-md-6">
+                                <div style="font-size:2em;display: flex;justify-content: left;align-items: center;margin-top:50px">
+                                   
+                                    <mat-card-content class="text-center text-white">
+                                        <!-- <span class="hrs">HRS</span> -->
+                                        250
+                                        <span class="hrs">KWH</span>
+                                    </mat-card-content>
+                                </div>
+                               
+                              
+                            </div>
+                        </div>
+
+
+                        </mat-card>
+                        </div>
+
+            </div>
+        </div>
+    </div>
+</div>
