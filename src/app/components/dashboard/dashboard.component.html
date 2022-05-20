@@ -1,12 +1,12 @@
 <div class="container-fluid">
 
-    <div class="floating">
+    <!-- <div class="floating">
         <button mat-fab mat-button (click)="openDialog()">
             <mat-icon>filter_list</mat-icon>
 
         </button>
 
-    </div>
+    </div> -->
     <div class="row">
 
         <div class="col-md-12 dashboard-content">
@@ -15,15 +15,13 @@
                     <mat-card class="timep">
                         <mat-card-content>
 
-                            {{currDate| date:'mediumDate'}}
-                            <!-- <mat-icon style="color:#001aff">av_timer</mat-icon> -->
+                            {{time|async| date:'mediumDate'}}
 
                         </mat-card-content>
 
                         <mat-card-content>
 
-                            {{currDate| date:'mediumTime'}}
-                            <!-- <mat-icon style="color:rgb(55, 0, 255)">watch_later</mat-icon> -->
+                            {{time | async | date:'mediumTime'}}
 
                         </mat-card-content>
 
@@ -41,40 +39,38 @@
                 <div class="col-md-4 offset-md-1">
                     <mat-card class="result1">
 
-                        <mat-card-subtitle>Total ON Time</mat-card-subtitle>
+                        <mat-card-subtitle class="sub-hdr">Total ON Time</mat-card-subtitle>
                         <mat-card-content>
                             <div class="abs-content abs3">
                                 <img class="" src="assets/clock.png" />
 
-                                <!-- <mat-icon>library_books</mat-icon> -->
 
                             </div>
-                            15 <span class="hrs">HRS</span>
-                            20 <span class="hrs">min</span>
-                            <!-- <mat-icon style="color:orange">change_history</mat-icon> -->
+                            <span class="numbs"> 15</span>
+                            <span class="hrs">HRS</span>
+                            <span class="numbs">
+                                20
+                            </span>
+                            <span class="hrs">min</span>
 
                         </mat-card-content>
 
-                        <!-- <mat-card-footer>	more</mat-card-footer> -->
                     </mat-card>
                 </div>
                 <div class="col-md-4 offset-md-1">
                     <mat-card class="result1">
 
-                        <mat-card-subtitle>Total OFF Time</mat-card-subtitle>
+                        <mat-card-subtitle class="sub-hdr">Total OFF Time</mat-card-subtitle>
                         <mat-card-content>
                             <div class="abs-content abs4">
                                 <img class="" src="assets/clock.png" />
-                                <!-- <mat-icon>list_alt</mat-icon> -->
 
                             </div>
-                            1 <span class="hrs">HRS</span>
-                            5 <span class="hrs">min</span>
-                            <!-- <mat-icon style="color:red">arrow_downward</mat-icon> -->
+                            <span class="numbs"> 1 </span><span class="hrs">HRS</span>
+                            <span class="numbs"> 5 </span><span class="hrs">min</span>
 
                         </mat-card-content>
 
-                        <!-- <mat-card-footer>	more</mat-card-footer> -->
                     </mat-card>
                 </div>
 
@@ -88,20 +84,20 @@
                     <mat-card class="result2 mt-4 mb-3">
                         <div class="row">
                             <div class="col-md-12 text-dark text-uppercase text-center">
-                                <h4>MIxer loading</h4>
+                                <mat-card-header class="text-uppercase m-hdr">MIxer loading</mat-card-header>
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <mat-card class="bg1">
-                                    <mat-card-header class="text-dark">
+                                    <mat-card-header class="text-dark sub-hdr">
                                         Hatch Open
                                     </mat-card-header>
                                     <mat-card-content>
-                                        <span>1</span>
+                                        <span class="numbs"> 1</span>
                                         <span class="hrs">HRS</span>
-                                        15
+                                        <span class="numbs"> 15</span>
                                         <span class="hrs">min</span>
 
                                         <img class="" src="assets/hatch-open.jpg" />
@@ -111,11 +107,11 @@
 
                             <div class="col-md-6">
                                 <mat-card class="bg1">
-                                    <mat-card-header class="text-dark">
+                                    <mat-card-header class="text-dark sub-hdr">
                                         Hatch Close
                                     </mat-card-header>
                                     <mat-card-content>
-                                        <span>12</span>
+                                        <span class="numbs"> 12</span>
                                         <span class="hrs">HRS</span>
 
                                         <img class="" src="assets/hatch-close.jpg" />
@@ -137,18 +133,19 @@
                     <mat-card class="result2 mt-4 mb-3">
                         <div class="row">
                             <div class="col-md-12 text-dark text-uppercase text-center">
-                                <h4>MIxer unloading</h4>
+
+                                <mat-card-header class="text-uppercase m-hdr">MIxer unloading</mat-card-header>
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <mat-card class="bg1">
-                                    <mat-card-header class="text-dark">
+                                    <mat-card-header class="text-dark sub-hdr">
                                         Hatch Open
                                     </mat-card-header>
                                     <mat-card-content>
-                                        <span>40</span>
+                                        <span class="numbs"> 40</span>
                                         <span class="hrs">min</span>
 
                                         <img class="" src="assets/hatch-open.jpg" />
@@ -158,13 +155,14 @@
 
                             <div class="col-md-6">
                                 <mat-card class="bg1">
-                                    <mat-card-header class="text-dark">
+                                    <mat-card-header class="text-dark sub-hdr">
                                         Hatch Close
                                     </mat-card-header>
                                     <mat-card-content>
-                                        <span>11</span>
+                                        <span class="numbs"> 11</span>
                                         <span class="hrs">HRS</span>
-                                        5 <span class="hrs">min</span>
+                                        <span class="numbs"> 5
+                                        </span> <span class="hrs">min</span>
                                         <img class="" src="assets/hatch-close.jpg" />
                                     </mat-card-content>
                                 </mat-card>
@@ -177,13 +175,12 @@
 
             </div>
 
-            <div class="row ">
+            <!-- <div class="row ">
 
                 <div class="col-md-6">
                     <mat-card class="result4 mt-4 mb-3">
 
                         <app-chartjs [monthsData]="monthsData" chartType="chart1"></app-chartjs>
-                        <!-- <app-plotly pMap="scatter2"></app-plotly> -->
                         <div class="card-footer">
 
 
@@ -196,7 +193,6 @@
                 <div class="col-md-6 ">
                     <mat-card class="result4 mt-4 mb-3">
                         <app-line-chart [monthsData2]="monthsData2" chartType="chart2"></app-line-chart>
-                        <!-- <app-plotly pMap="line"></app-plotly> -->
                         <div class="card-footer">
 
 
@@ -206,7 +202,7 @@
                     </mat-card>
 
                 </div>
-            </div>
+            </div> -->
 
 
             <div class="row">
@@ -214,11 +210,11 @@
                     <mat-card class=" mt-4 mb-3 wordCloud">
                         <mat-card-header class="text-uppercase" style="font-size:25px">Run Time</mat-card-header>
 
-                        <div class="c-time11" style="">
+                        <div class="c-time11">
 
 
                             <!-- <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">av_timer</mat-icon> -->
-<img class="" style="height: 80px;" src="assets/runtime.png" />
+                            <img class="" style="height: 80px;" src="assets/runtime.png" />
                             <mat-card-content class="ct">
                                 16
                                 <span class="hrs">HRS</span>
@@ -259,7 +255,7 @@
                     <mat-card class=" mt-4 mb-3 wordCloud">
                         <mat-card-header class="text-uppercase" style="font-size:25px">Cycle Time</mat-card-header>
 
-                        <div class="c-time11" style="">
+                        <div class="c-time111" style="">
                             <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">loop</mat-icon>
 
                             <mat-card-content class="ct">
@@ -274,7 +270,7 @@
                 <div class="col-md-4 ">
                     <mat-card class=" mt-4 mb-3 wordCloud">
                         <mat-card-header class="text-uppercase" style="font-size:25px">Cycle Count</mat-card-header>
-                        <div class="c-time21" style="">
+                        <div class="c-time211" style="">
                             <mat-icon style="font-size:45px;margin-top:20px;margin-left:20px">list_alt</mat-icon>
                             <mat-card-content class="ct">
                                 9
@@ -299,9 +295,10 @@
                         <div class="row">
                             <div class="col-md-12 text-center mb-3">
                                 <mat-card-content class="text-white">
-                                    <img style="height: 80px;" class="" src="assets/rpm.png" /> RPM</mat-card-content>
+                                    <img style="height: 80px;" class="" src="assets/rpm.png" /> RPM
+                                </mat-card-content>
 
-                                
+
 
                                 <hr style="border:2px solid #fff">
 
@@ -366,31 +363,33 @@
                         <div class="row">
 
                             <div class="col-md-4 offset-md-1">
-                                <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
+                                <div
+                                    style="display: flex;flex-direction: row;justify-content: center;align-items: center;">
                                     <img style="height: 180px;" class="" src="assets/m1.png" />
 
-                                   
+
                                 </div>
-                               
-                              
+
+
                             </div>
                             <div class="col-md-6">
-                                <div style="font-size:2em;display: flex;justify-content: left;align-items: center;margin-top:50px">
-                                   
+                                <div
+                                    style="font-size:2em;display: flex;justify-content: left;align-items: center;margin-top:50px">
+
                                     <mat-card-content class="text-center text-white">
                                         <!-- <span class="hrs">HRS</span> -->
                                         250
                                         <span class="hrs">KWH</span>
                                     </mat-card-content>
                                 </div>
-                               
-                              
+
+
                             </div>
                         </div>
 
 
-                        </mat-card>
-                        </div>
+                    </mat-card>
+                </div>
 
             </div>
         </div>

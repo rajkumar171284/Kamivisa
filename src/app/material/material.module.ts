@@ -44,6 +44,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { CdkTableExporterModule } from 'cdk-table-exporter';
 
 @NgModule({
   exports: [
@@ -60,7 +61,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
-    MatChipsModule,
+    MatChipsModule,CdkTableExporterModule,
     MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,

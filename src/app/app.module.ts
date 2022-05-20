@@ -26,10 +26,15 @@ import { HeatmapPlotlyComponent } from './components/heatmap-plotly/heatmap-plot
 import { SidenavModule } from './sidenav/sidenav.module';
 
 import {LineChartComponent} from './components/line-chart/line-chart.component';
+
+import {ReportsComponent} from './components/reports/reports.component';
+import {MatTableExporterModule } from 'mat-table-exporter';
+
+
 @NgModule({
   declarations: [
     AppComponent, DashboardComponent, ChartjsComponent, FilterDialogComponent,
-    PlotlyComponent, LeafletComponent, HeatmapPlotlyComponent,LineChartComponent
+    PlotlyComponent, LeafletComponent, HeatmapPlotlyComponent,LineChartComponent,ReportsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import {LineChartComponent} from './components/line-chart/line-chart.component';
     FormsModule,
     HttpClientModule,
     MatNativeDateModule,
-    ReactiveFormsModule, TagCloudModule, PlotlyModule, LeafletModule, SidenavModule
+    ReactiveFormsModule, TagCloudModule, PlotlyModule, LeafletModule, SidenavModule,MatTableExporterModule
 
   ],
   providers: [ApiService],

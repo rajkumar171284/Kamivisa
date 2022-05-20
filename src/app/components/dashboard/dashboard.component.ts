@@ -1,4 +1,4 @@
-import { AfterViewInit, ElementRef, Component, OnInit, ViewChild, SimpleChanges,OnDestroy } from '@angular/core';
+import { AfterViewInit, ElementRef, Component, OnInit, ViewChild, SimpleChanges,OnDestroy,ChangeDetectionStrategy } from '@angular/core';
 // import { Chart } from 'chart.js';
 import Chart from 'chart.js/auto';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,15 +10,18 @@ import { ajax } from 'rxjs/ajax';
 const apiData = ajax('/assets/Ticketdump2_sample.xlsx');
 import { WorkBook, read, utils, write, readFile, } from 'xlsx';
 import * as XLSX from 'xlsx';
-import { Subscription } from 'rxjs';
+import { Observable, Observer, Subscription } from 'rxjs';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit ,OnDestroy{
+  time = new Observable<string>((observer: Observer<string>) => {
+    setInterval(() => observer.next(new Date().toString()), 1000);
+  });
   private subscription: Subscription | undefined;  
-    currDate=new Date();
 
   options: CloudOptions = {
     // if width is between 0 and 1 it will be set to the width of the upper element multiplied by the value
@@ -99,75 +102,7 @@ export class DashboardComponent implements OnInit ,OnDestroy{
     '18:00:00',
   ]
   ngOnInit(): void {
-    // this.getJSON()
-
-    // apiData.subscribe(res => console.log(res.status, res.response));
-    // this.subscription= this.api.getSampleTicket().subscribe(oReq => {
-
-    //   var arraybuffer = oReq;
-    //   console.log(arraybuffer)
-
-    //   /* convert data to binary string */
-    //   var data = new Uint8Array(arraybuffer);
-    //   var arr = new Array();
-    //   for (var i = 0; i != data.length; ++i) {
-    //     arr[i] = String.fromCharCode(data[i]);
-    //     // console.log("Data" + data[i]);
-    //   }
-    //   var bstr = arr.join("");
-    //   var workbook = XLSX.read(bstr, { type: "binary" });
-    //   //console.log("Data"+bstr);
-    //   var first_sheet_name = workbook.SheetNames[0];
-    //   /* Get worksheet */
-    //   var worksheet = workbook.Sheets[first_sheet_name];
-    //   var json = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], { header: 1, raw: true });
-    //   var jsonOut = JSON.stringify(json);
-    //   console.log("test" + jsonOut.length);
-    //   for(let a of jsonOut){
-    //     console.log("a" + a);
-    //   }
-
-
-    // })
-
-    // this.api.getSampleTicket().subscribe(data => {
-    //   console.log(data)
-    //   const blob = new Blob([data._body],
-    //     { type: 'application/json' });
-    //   const file = new File([blob], 'report.json',
-    //   {type:'mime'});
-    //   console.log('file', file)
-
-    //   // const contentType = data.type;
-    //   // const blob = new Blob([data], { type: contentType });
-
-
-    //   const url = window.URL.createObjectURL(blob);
-    //   // window.open(url);
-    //   let blob2 =  fetch(url).then(r => {
-
-    //   //  console.log(r) 
-    //     const d= r.blob()
-    //     console.log(d) 
-
-    //   });
-
-
-    // const blob = new Blob([data],{ type: contentType });
-    // var fileReader = new FileReader();
-    // fileReader.readAsText(file,"UTF-8");
-    // fileReader.onload = () => {
-    //   console.log(fileReader.result?.toString());
-    //   const str = fileReader.result?.toString();
-    //   console.log(str);
-    // const jsonObj=(JSON.parse(str));
-    // console.log(jsonObj)
-    // }
-
-
-
-    // })
-
+    
   }
   openDialog() {
     const dialogRef = this.dialog.open(FilterDialogComponent);
@@ -212,4 +147,5 @@ export class DashboardComponent implements OnInit ,OnDestroy{
   ngOnDestroy(){
     this.subscription?.unsubscribe()
   }
+  
 }
